@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { categories } from './constants';
+import { categories } from '@/constants/category';
 import { MenuIcon } from '@/public/icons';
 import Drawer from './Drawer';
 

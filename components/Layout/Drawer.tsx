@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { categories } from './constants';
+import { categories } from '@/constants/category';
 import { CloseIcon } from '@/public/icons';
 
 interface Props {
