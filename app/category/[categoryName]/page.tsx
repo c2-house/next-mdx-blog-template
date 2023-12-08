@@ -1,9 +1,21 @@
 import Image from 'next/image';
 import { allPosts } from 'contentlayer/generated';
+
+import { categories } from '@/constants/category';
 import PostList from '@/components/Blog/PostList';
 
-const Home = () => {
-  const posts = allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+interface Props {
+  params: {
+    categoryName: string;
+  };
+}
+
+export const generateStaticParams = async () => {
+  return categories.map((categoryName) => ({ categoryName }));
+};
+
+const CategoryPage = ({ params: { categoryName } }: Props) => {
+  const posts = allPosts.filter((post) => post.category === categoryName);
 
   return (
     <main>
@@ -12,7 +24,7 @@ const Home = () => {
           <div className="absolute inset-0 -z-10 overflow-hidden">
             <Image
               src={`/images/cover/main.jpg`}
-              alt="Welcome to my blog!"
+              alt={categoryName}
               width={1920}
               height={1280}
               sizes="(max-width: 1280px) 100vw, 1216px"
@@ -20,14 +32,9 @@ const Home = () => {
               priority
             />
           </div>
-          <div className="px-6 text-center text-white">
-            <h1 className="mb-3 text-3xl font-semibold sm:mb-6 md:text-4xl lg:text-5xl">
-              Welcome to my blog!
-            </h1>
-            <p className="text-md md:text-lg lg:text-xl">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sapiente numquam ipsum
-            </p>
-          </div>
+          <h1 className="px-6 text-center text-3xl font-semibold text-white md:text-4xl lg:text-5xl">
+            {categoryName.toUpperCase()}
+          </h1>
         </div>
       </section>
 
@@ -38,4 +45,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default CategoryPage;

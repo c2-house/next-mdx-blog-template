@@ -47,9 +47,9 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
       <div
         aria-label="drawer overlay"
         role="button"
-        className={clsx('fixed inset-0 cursor-default backdrop-blur transition-all', {
-          'pointer-events-auto z-30 bg-gray-900/80': isOpen,
-          'pointer-events-none z-[-1] bg-transparent': !isOpen,
+        className={clsx('fixed inset-0 cursor-default transition-all', {
+          'pointer-events-auto z-30 bg-gray-900/80 backdrop-blur': isOpen,
+          'pointer-events-none -z-10 bg-transparent': !isOpen,
         })}
         onClick={() => setIsOpen(false)}
       />
