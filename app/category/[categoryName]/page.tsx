@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { allPosts } from 'contentlayer/generated';
-
 import { categories } from '@/constants/category';
 import PostList from '@/components/Blog/PostList';
 
