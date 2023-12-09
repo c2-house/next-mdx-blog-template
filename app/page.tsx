@@ -24,7 +24,7 @@ const Home = () => {
             <h1 className="mb-3 text-3xl font-semibold sm:mb-6 md:text-4xl lg:text-5xl">
               Welcome to my blog!
             </h1>
-            <p className="text-md md:text-lg lg:text-xl">
+            <p className="text-base md:text-lg lg:text-xl">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa sapiente numquam ipsum
             </p>
           </div>

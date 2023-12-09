@@ -37,8 +37,12 @@ const LinkPreview = ({ url }: { url: string }) => {
   return (
     <LinkContainer url={url}>
       <div className="flex-1 overflow-hidden px-4 py-3 font-normal">
-        <div className="line-clamp-1 text-base font-semibold text-gray-900">{data.title}</div>
-        <div className="my-[6px] line-clamp-2 h-10 text-sm text-gray-500">{data.description}</div>
+        <div className="mb-[6px] line-clamp-2 h-10 text-sm font-semibold text-gray-900 sm:line-clamp-1 sm:h-6 md:text-base">
+          {data.title}
+        </div>
+        <div className="mb-[6px] line-clamp-2 hidden h-10 text-sm text-gray-500 sm:block">
+          {data.description}
+        </div>
         <div className="flex items-center">
           <img src={data.favicon} alt="logo" className="!m-0 h-4 w-4" />
           <div className="ml-[6px] overflow-hidden text-ellipsis whitespace-nowrap text-xs text-gray-700">
@@ -47,7 +51,7 @@ const LinkPreview = ({ url }: { url: string }) => {
         </div>
       </div>
       {data.image && (
-        <div className="relative hidden w-[200px] sm:block">
+        <div className="relative w-[120px] sm:w-[200px]">
           <div className="absolute inset-0">
             <img src={data.image} alt={data.title} className="!m-0 h-full w-full object-cover" />
           </div>
@@ -76,7 +80,7 @@ const LinkContainer = ({ url, children }: { url: string; children: React.ReactNo
 
 const Loading = () => {
   return (
-    <div className="my-5 flex h-[116px] w-full items-center justify-center space-x-2 rounded-[4px] border border-gray-200">
+    <div className="my-5 flex h-[88px] w-full items-center justify-center space-x-2 rounded-[4px] border border-gray-200 sm:h-[116px]">
       <div aria-label="loading" role="status">
         <svg
           width="24"
