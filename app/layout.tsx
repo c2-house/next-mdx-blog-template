@@ -3,7 +3,7 @@ import { Inter } from 'next/font/google';
 import clsx from 'clsx';
 import './globals.css';
 
-import { defaultMetadata } from '@/constants/metadata';
+import { defaultMetadata, host } from '@/constants/metadata';
 import Header from '@/components/Layout/Header';
 import Footer from '@/components/Layout/Footer';
 
@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] });
 const { title, description } = defaultMetadata;
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chaechaekorea.com'),
+  metadataBase: new URL(host),
   title: {
     default: title,
     template: `%s | ${title}`,
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/images/og-image.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: title,
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     types: {
       'application/rss+xml': [
         {
-          title: `${title} | Feed`,
-          url: 'https://chaechaekorea.com/api/rss',
+          title: `${title} - Feed`,
+          url: '/rss',
         },
       ],
     },
