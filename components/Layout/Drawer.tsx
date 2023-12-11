@@ -33,7 +33,7 @@ const Drawer = ({ isOpen, setIsOpen }: Props) => {
               <li key={category} className="w-full">
                 <Link
                   href={`/category/${category}`}
-                  className="inline-block w-full p-2 text-center font-semibold uppercase transition-colors hover:text-slate-400"
+                  className="inline-block w-full p-2 text-center font-semibold uppercase transition-colors hover:text-slate-500"
                   onClick={() => setIsOpen(false)}
                 >
                   {category}

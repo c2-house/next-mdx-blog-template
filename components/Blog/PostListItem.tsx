@@ -29,7 +29,7 @@ const PostListItem = ({ post }: { post: Post }) => {
             <time dateTime={dayjs(post.date).format('YYYY-MM-DD')}>
               {dayjs(post.date).format('MMM D, YYYY')}
             </time>
-            <span className="before:px-[6px] before:content-['·']">{post.readTime} min read</span>
+            <span className="before:px-1.5 before:content-['·']">{post.readTime} min read</span>
           </div>
         </div>
       </article>

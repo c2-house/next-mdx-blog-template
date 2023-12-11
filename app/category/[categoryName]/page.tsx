@@ -37,7 +37,7 @@ const CategoryPage = ({ params: { categoryName } }: Props) => {
         </div>
       </section>
 
-      <section className="container-xl pt-10">
+      <section className="container-xl py-10">
         <PostList posts={posts} />
       </section>
     </main>

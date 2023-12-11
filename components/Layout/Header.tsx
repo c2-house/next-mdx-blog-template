@@ -25,7 +25,7 @@ const Header = () => {
                   <li key={category}>
                     <Link
                       href={`/category/${category}`}
-                      className="px-4 py-2 font-semibold uppercase transition-colors hover:text-slate-400"
+                      className="px-4 py-2 font-semibold uppercase transition-colors hover:text-slate-500"
                     >
                       {category}
                     </Link>
