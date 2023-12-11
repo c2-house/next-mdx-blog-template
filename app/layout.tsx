@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: {
     default: title,
     template: `%s | ${title}`,
-    absolute: `${title} - Discover the Authentic Korea`,
+    absolute: `${title} - Welcome to my blog!`,
   },
   description,
   openGraph: {
