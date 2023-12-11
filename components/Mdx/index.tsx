@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import type { MDXComponents } from 'mdx/types';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
 import LinkPreview from './LinkPreview';
+import { NextImage, YoutubeVideo } from './Figure';
 
 const CustomLink = (props: any) => {
   if (props.href.startsWith('/')) {
@@ -17,19 +17,11 @@ const CustomLink = (props: any) => {
   return <a {...props} />;
 };
 
-const NextImage = ({ src, alt, caption }: { src: string; alt: string; caption?: string }) => {
-  return (
-    <figure>
-      <Image src={`/images/blog/${src}`} alt={alt} width={735} height={490} />
-      {caption && <figcaption className="text-center">{caption}</figcaption>}
-    </figure>
-  );
-};
-
 const components: MDXComponents = {
   a: CustomLink,
-  Image: NextImage,
   Link: LinkPreview,
+  Image: NextImage,
+  Video: YoutubeVideo,
 };
 
 const Mdx = ({ code }: { code: string }) => {
