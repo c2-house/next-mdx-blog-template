@@ -24,8 +24,8 @@ const CategoryPage = ({ params: { categoryName } }: Props) => {
             <Image
               src={`/images/cover/main.jpg`}
               alt={categoryName}
-              width={1920}
-              height={1280}
+              width={1280}
+              height={853}
               sizes="(max-width: 1280px) 100vw, 1216px"
               className="h-full w-full object-cover"
               priority

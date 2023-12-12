@@ -21,7 +21,7 @@ const components: MDXComponents = {
   a: CustomLink,
   Link: LinkPreview,
   Image: NextImage,
-  Video: YoutubeVideo,
+  Youtube: YoutubeVideo,
 };
 
 const Mdx = ({ code }: { code: string }) => {

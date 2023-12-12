@@ -7,12 +7,19 @@ interface VideoProps {
 
 interface ImageProps extends VideoProps {
   alt: string;
+  fullWidth?: boolean;
 }
 
-export const NextImage = ({ src, alt, caption }: ImageProps) => {
+export const NextImage = ({ src, alt, caption, fullWidth = true }: ImageProps) => {
   return (
     <figure>
-      <Image src={`/images/blog${src}`} alt={alt} width={735} height={490} />
+      <Image
+        src={`/images/blog${src}`}
+        alt={alt}
+        width={fullWidth ? 732 : 400}
+        height={fullWidth ? 549 : 400}
+        className="mx-auto"
+      />
       {caption && <figcaption className="text-center">{caption}</figcaption>}
     </figure>
   );
