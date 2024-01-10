@@ -3,8 +3,12 @@
 @tailwind utilities;
 
 @layer base {
-  mark {
+  .prose mark {
     @apply bg-yellow-100;
+  }
+
+  .prose .callout p {
+    @apply my-0;
   }
 }
 
