@@ -12,7 +12,7 @@ export const generateMetadata = async ({ params: { categoryName } }: Props): Pro
   const ogTitle = `${category} | ${title}`;
 
   return {
-    title,
+    title: category,
     description,
     openGraph: {
       ...openGraph,
