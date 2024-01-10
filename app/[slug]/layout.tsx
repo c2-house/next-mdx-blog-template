@@ -26,7 +26,7 @@ export const generateMetadata = async (
       title,
       description,
       url: `/${slug}`,
-      siteName: title,
+      siteName: 'My Blog',
       type: 'article',
       publishedTime: date,
       tags: post.category,

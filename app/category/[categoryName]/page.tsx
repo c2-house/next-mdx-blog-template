@@ -14,7 +14,9 @@ export const generateStaticParams = async () => {
 };
 
 const CategoryPage = ({ params: { categoryName } }: Props) => {
-  const posts = allPosts.filter((post) => post.category === categoryName);
+  const posts = allPosts
+    .filter((post) => post.category === categoryName)
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
   return (
     <main>
@@ -22,11 +24,10 @@ const CategoryPage = ({ params: { categoryName } }: Props) => {
         <div className="relative flex h-[30vh] items-center justify-center bg-black/60">
           <div className="absolute inset-0 -z-10 overflow-hidden">
             <Image
-              src={`/images/cover/main.jpg`}
+              src="/images/cover/main.jpg"
               alt={categoryName}
               width={1280}
               height={853}
-              sizes="(max-width: 1280px) 100vw, 1216px"
               className="h-full w-full object-cover"
               priority
             />

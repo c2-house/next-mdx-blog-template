@@ -1,10 +1,11 @@
 import RSS, { FeedOptions } from 'rss';
 import { allPosts } from 'contentlayer/generated';
-import { defaultMetadata, host } from '@/constants/metadata';
+import { title, description } from '@/app/shared-metadata';
+
+const host =
+  process.env.NODE_ENV === 'production' ? 'https://example.com' : 'http://localhost:3000';
 
 export async function GET() {
-  const { title, description } = defaultMetadata;
-
   const feedOptions: FeedOptions = {
     title,
     description,

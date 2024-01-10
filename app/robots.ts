@@ -7,7 +7,6 @@ const robots = (): MetadataRoute.Robots => {
       allow: '/',
     },
     sitemap: 'https://example.com/sitemap.xml',
-    host: 'https://example.com',
   };
 };
 
