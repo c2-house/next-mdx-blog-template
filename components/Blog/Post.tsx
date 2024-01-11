@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { Post } from 'contentlayer/generated';
-import Mdx from '../Mdx';
+import Mdx from './Mdx';
 
 const Post = ({ post }: { post: Post }) => {
   return (
