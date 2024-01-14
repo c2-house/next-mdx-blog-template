@@ -24,9 +24,9 @@ const Post = ({ post }: { post: Post }) => {
         </div>
       </header>
       <hr className="not-prose my-8 lg:my-10" />
-      <div>
+      <section>
         <Mdx code={post.body.code} />
-      </div>
+      </section>
     </article>
   );
 };
