@@ -22,7 +22,7 @@ const CategoryPage = ({ params: { categoryName } }: Props) => {
     <main>
       <section className="container-xl p-0 lg:px-8">
         <div className="relative flex h-[30vh] items-center justify-center bg-black/60">
-          <div className="absolute inset-0 -z-10 overflow-hidden">
+          <div className="absolute inset-0 z-[-1] overflow-hidden">
             <Image
               src="/images/cover/main.jpg"
               alt={categoryName}

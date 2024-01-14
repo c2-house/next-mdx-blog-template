@@ -1,26 +1,36 @@
 import clsx from 'clsx';
 import Link from 'next/link';
+import { Dispatch, MouseEvent, SetStateAction } from 'react';
+
 import { categories } from '@/constants/category';
 import { CloseIcon } from '@/public/icons';
 
 interface Props {
   isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
+
+const handleClickOutside = (e: MouseEvent, setIsOpen: Dispatch<SetStateAction<boolean>>) => {
+  if (e.target === e.currentTarget) {
+    setIsOpen(false);
+  }
+};
 
 const Drawer = ({ isOpen, setIsOpen }: Props) => {
   return (
     <div
-      className={clsx('fixed inset-0 cursor-default transition-all duration-300', {
-        'pointer-events-auto z-30 bg-gray-900/80 backdrop-blur': isOpen,
-        'pointer-events-none -z-10 bg-transparent': !isOpen,
-      })}
-      onClick={() => setIsOpen(false)}
+      className={clsx(
+        'fixed inset-0 cursor-default transition-all duration-300',
+        isOpen
+          ? 'pointer-events-auto z-50 bg-gray-900/80 backdrop-blur'
+          : 'pointer-events-none z-[-1] bg-transparent',
+      )}
+      onClick={(e) => handleClickOutside(e, setIsOpen)}
     >
       <div
         className={clsx(
-          'fixed right-0 top-0 z-40 flex h-full w-64 transform flex-col bg-gray-100 p-4 text-gray-700 shadow-lg transition-transform duration-300',
-          { 'translate-x-0': isOpen, 'translate-x-full': !isOpen },
+          'fixed right-0 top-0 z-[51] flex h-full w-64 transform flex-col bg-gray-100 p-4 text-gray-700 shadow-lg transition-transform duration-300',
+          isOpen ? 'translate-x-0' : 'translate-x-full',
         )}
       >
         <div className="flex justify-end">

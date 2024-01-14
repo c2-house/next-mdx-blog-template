@@ -1,7 +1,8 @@
 'use client';
 
+import clsx from 'clsx';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { categories } from '@/constants/category';
 import { MenuIcon } from '@/public/icons';
@@ -9,10 +10,24 @@ import Drawer from './Drawer';
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-      <header>
+      <header
+        className={clsx('sticky inset-x-0 top-0 z-10 w-full transition-colors duration-300', {
+          'border-b border-gray-100 bg-white/70 backdrop-blur-lg': scrollY > 0,
+        })}
+      >
         <div className="container-xl py-3 md:py-5">
           <div className="flex items-center justify-between">
             <Link href="/" className="text-xl font-bold md:text-2xl">
